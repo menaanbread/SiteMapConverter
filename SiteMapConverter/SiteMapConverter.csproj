@@ -29,8 +29,13 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="Launcher.ts" />
     <TypeScriptCompile Include="Scripts\typings\x2js\xml2json.d.ts" />
+    <TypeScriptCompile Include="SiteMapController.ts" />
+    <TypeScriptCompile Include="SiteMapModel.ts" />
+    <TypeScriptCompile Include="SiteMapModelUrl.ts" />
+    <TypeScriptCompile Include="SiteMapModelUrlData.ts" />
+    <TypeScriptCompile Include="SiteMapViewModel.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
