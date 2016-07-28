@@ -28,9 +28,9 @@
 
     private download(text: string, name: string, type: string) {
         let downloadLink = document.createElement("a");
-        var file = new Blob([text], { type: type });
+        let file = new Blob([text], { type: type });
         downloadLink.href = URL.createObjectURL(file);
-        downloadLink.setAttribute("download", name); 
+        downloadLink.setAttribute("download", name);
         downloadLink.click();
     }
 }
@@ -70,27 +70,26 @@ class SiteMapModel {
 }
 
 class SiteMapModelUrl {
+    public url: SiteMapModelUrlData;
+
     constructor(urlLocation: string, changeFrequency: string, priority: string) {
         this.url = new SiteMapModelUrlData(urlLocation, changeFrequency, priority);
     }
-
-    public url: SiteMapModelUrlData;
 }
 
 class SiteMapModelUrlData {
+    public loc: string;
+    public changefreq: string;
+    public priority: string;
+
     constructor(urlLocation: string, changeFrequency: string, priority: string) {
         this.loc = urlLocation;
         this.changefreq = changeFrequency;
         this.priority = priority;
     };
-
-    public loc: string;
-    public changefreq: string;
-    public priority: string;
 }
-
 
 window.onload = () => {
-    var controller = new SiteMapController();
+    let controller = new SiteMapController();
     controller.setup();
-}
+};
