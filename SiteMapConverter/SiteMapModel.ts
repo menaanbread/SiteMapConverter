@@ -1,3 +1,7 @@
 ﻿class SiteMapModel {
-    public urlset: Array<SiteMapModelUrl> = new Array<SiteMapModelUrl>();
+    public urlset: Array<SiteMapModelUrl>;
+
+    constructor() {
+        this.urlset = new Array<SiteMapModelUrl>();
+    }
 }

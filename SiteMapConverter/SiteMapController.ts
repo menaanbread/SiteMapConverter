@@ -1,4 +1,6 @@
-﻿class SiteMapController {
+﻿/// <reference path="./Scripts/typings/x2js/xml2json.d.ts" />
+
+class SiteMapController {
 
     private _viewModel: SiteMapViewModel;
 

@@ -15,15 +15,16 @@ var gulp = require("gulp"),
   nested = require('postcss-nested'),
   rename = require("gulp-rename"),
   stylelint = require("gulp-stylelint").default,
-  consolereporter = require("gulp-stylelint-console-reporter").default;
+  consolereporter = require("gulp-stylelint-console-reporter").default,
+  pump = require('pump');
 
 var webroot = "./Scripts/";
 
 var paths = {
-    js: webroot + "js/**/*.js",
+    js: "./dist/**/*.js",
     minJs: webroot + "js/**/*.min.js",
     ts: "*.ts",
-    tsOut: webroot + "test.js",
+    tsOut: "./dist",
     precss: webroot + "css/pre/**/*.post",
     postcss: webroot + "css/post/",
     css: webroot + "css/**/*.css",
@@ -41,8 +42,7 @@ gulp.task("ts:compile", function () {
             allowJs: true,
             noImplicitAny: true,
             target: "ES6",
-            sourceMap: true,
-            outDir: paths.tsOut
+            sourceMap: true
         }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.tsOut));
@@ -104,13 +104,14 @@ gulp.task("clean:css", function (cb) {
 
 gulp.task("clean", ["clean:js", "clean:css"]);
 
-gulp.task("min:js", function () {
-    return gulp.src([paths.js, "!" + paths.minJs], {
-        base: "."
-    })
-      .pipe(concat(paths.concatJsDest))
-      .pipe(uglify())
-      .pipe(gulp.dest("."));
+gulp.task("min:js", function (cb) {
+    pump([
+          gulp.src(paths.js),
+          uglify(),
+          gulp.dest("dist")
+    ],
+      cb
+    );
 });
 
 gulp.task("min:css", function () {
