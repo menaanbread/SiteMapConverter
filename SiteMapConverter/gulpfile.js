@@ -27,7 +27,9 @@ gulp.task("ts", function (cb) {
 gulp.task("js:debug", function (cb) {
     pump([
         gulp.src(["dist/sitemapts.js", "dist/xml2json.js"]),
+        sourcemaps.init(),
         concat("sitemap.js"),
+        sourcemaps.write("./"),
         gulp.dest("dist")
     ],
     cb);

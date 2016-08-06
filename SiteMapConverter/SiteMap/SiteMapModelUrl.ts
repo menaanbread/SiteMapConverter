@@ -1,7 +1,7 @@
 ﻿class SiteMapModelUrl {
-    public url: SiteMapModelUrlData;
+    public url: Array<SiteMapModelUrlData>;
 
-    constructor(urlLocation: string, changeFrequency: string, priority: string) {
-        this.url = new SiteMapModelUrlData(urlLocation, changeFrequency, priority);
+    constructor() {
+        this.url = new Array<SiteMapModelUrlData>();
     }
 }

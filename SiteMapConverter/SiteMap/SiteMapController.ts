@@ -18,7 +18,7 @@ class SiteMapController {
         let inputUrls = this._viewModel.input.split("\n");
 
         inputUrls.forEach((inputUrl) => {
-            siteMapModel.urlset.push(new SiteMapModelUrl(inputUrl, this._viewModel.changeFrequency, this._viewModel.priority));
+            siteMapModel.urlset.url.push(new SiteMapModelUrlData(inputUrl, this._viewModel.changeFrequency, this._viewModel.priority));
         });
 
         let xmlSer = new X2JS();
