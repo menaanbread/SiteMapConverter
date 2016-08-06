@@ -14,6 +14,8 @@ class SiteMapController {
     }
 
     private generateSiteMap() {
+        this._viewModel.showGreyout();
+
         let siteMapModel = new SiteMapModel();
         let inputUrls = this._viewModel.input.split("\n");
 
@@ -26,6 +28,8 @@ class SiteMapController {
 
         this._viewModel.output = siteMap;
         this._viewModel.download.style.display = "block";
+
+        this._viewModel.hideGreyout();
     }
 
     private download(text: string, name: string, type: string) {

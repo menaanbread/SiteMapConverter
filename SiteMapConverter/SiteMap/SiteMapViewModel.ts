@@ -26,4 +26,16 @@
     public set output(value: string) {
         document.getElementById("site-map-output").innerText = value;
     }
+
+    private get greyout(): HTMLDivElement {
+        return <HTMLDivElement>document.getElementById("site-map-page-greyout");
+    }
+
+    public hideGreyout(): void {
+        this.greyout.style.display = "none";
+    }
+
+    public showGreyout(): void {
+        this.greyout.style.display = "block";
+    }
 }

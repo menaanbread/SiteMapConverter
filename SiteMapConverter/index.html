@@ -3,27 +3,37 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Quick SiteMap Tester</title>
+    <title>SiteMap Generator</title>
     <link rel="stylesheet" href="Styles/app.css" type="text/css" />
     <script src="dist/sitemap.js"></script>
 </head>
 <body>
-    <h1>Quick SiteMap Tester</h1>
-    
-    <div id="content">
-        <label for="site-map-input">Input</label>
-        <textarea id="site-map-input"></textarea>
+    <h1>SiteMap Generator</h1>
 
-        <label for="site-map-change-frequency">Change Fequency</label>
+    <div id="content">
+        <label class="site-map-label" for="site-map-input">Input</label>
+        <br />
+        <textarea id="site-map-input" spellcheck="false" class="site-map-input"></textarea>
+
+        <label class="site-map-label" for="site-map-change-frequency">Change Fequency</label>
+        <br />
         <input type="text" id="site-map-change-frequency" />
 
-        <label for="site-map-priority">Priority</label>
+        <br />
+
+        <label class="site-map-label" for="site-map-priority">Priority</label>
+        <br />
         <input type="text" id="site-map-priority" />
+
+        <br />
+        <br />
 
         <button type="button" id="site-map-generate-button">Generate</button>
 
-        <div id="site-map-output"></div>
+        <div id="site-map-output" class="site-map-output"></div>
         <button type="button" id="site-map-download-button" class="site-map-download-button">Download</button>
     </div>
+
+    <div id="site-map-page-greyout" class="site-map-page-greyout"></div>
 </body>
 </html>
