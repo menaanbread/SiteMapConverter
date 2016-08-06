@@ -1,4 +1,4 @@
-﻿/// <reference path="./Scripts/typings/x2js/xml2json.d.ts" />
+﻿/// <reference path="./Dependencies/typings/x2js/xml2json.d.ts" />
 
 class SiteMapController {
 

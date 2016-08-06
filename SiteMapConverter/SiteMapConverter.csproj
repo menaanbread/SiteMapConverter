@@ -22,27 +22,26 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.css" />
+    <Content Include="Styles\app.css" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
-    <Content Include="Scripts\js\xml2json.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Launcher.ts" />
-    <TypeScriptCompile Include="Scripts\typings\x2js\xml2json.d.ts" />
-    <TypeScriptCompile Include="SiteMapController.ts" />
-    <TypeScriptCompile Include="SiteMapModel.ts" />
-    <TypeScriptCompile Include="SiteMapModelUrl.ts" />
-    <TypeScriptCompile Include="SiteMapModelUrlData.ts" />
-    <TypeScriptCompile Include="SiteMapViewModel.ts" />
+    <TypeScriptCompile Include="SiteMap\Launcher.ts" />
+    <TypeScriptCompile Include="SiteMap\Dependencies\typings\x2js\xml2json.d.ts" />
+    <TypeScriptCompile Include="SiteMap\SiteMapController.ts" />
+    <TypeScriptCompile Include="SiteMap\SiteMapModel.ts" />
+    <TypeScriptCompile Include="SiteMap\SiteMapModelUrl.ts" />
+    <TypeScriptCompile Include="SiteMap\SiteMapModelUrlData.ts" />
+    <TypeScriptCompile Include="SiteMap\SiteMapViewModel.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="package.json" />
     <Content Include=".stylelintrc" />
     <Content Include="tslint.json" />
     <Content Include="tsconfig.json" />
+    <Content Include="package.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
