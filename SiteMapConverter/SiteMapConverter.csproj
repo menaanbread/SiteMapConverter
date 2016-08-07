@@ -25,6 +25,7 @@
     <Content Include="Styles\app.css" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
+    <Content Include="Styles\SiteMapConverter.css" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>

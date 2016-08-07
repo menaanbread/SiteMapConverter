@@ -1,4 +1,5 @@
-﻿var gulp = require("gulp"),
+﻿/// <binding ProjectOpened='watch' />
+var gulp = require("gulp"),
     concat = require("gulp-concat"),
     pump = require("pump"),
     rename = require("gulp-rename"),
@@ -27,9 +28,7 @@ gulp.task("ts", function (cb) {
 gulp.task("js:debug", function (cb) {
     pump([
         gulp.src(["dist/sitemapts.js", "dist/xml2json.js"]),
-        sourcemaps.init(),
         concat("sitemap.js"),
-        sourcemaps.write("./"),
         gulp.dest("dist")
     ],
     cb);
@@ -56,3 +55,56 @@ gulp.task("ts:build", function (cb) {
 });
 
 // CSS Tasks
+
+var postcss = require("gulp-postcss"),
+    autoprefixer = require("autoprefixer"),
+    atImport = require("postcss-import")
+    nested = require("postcss-nested"),
+    uglifycss = require("gulp-uglifycss");
+
+gulp.task("css:debug", function (cb) {
+    var processors = [
+        atImport(),
+        autoprefixer({ browsers: ['last 1 version'] }),
+        nested()
+    ];
+
+    pump([
+        gulp.src("Styles/SiteMapConverter.css"),
+        rename("sitemap.css"),
+        postcss(processors),
+        gulp.dest("dist")
+    ],
+    cb);
+});
+
+gulp.task("css:release", function (cb) {
+    pump([
+        gulp.src(["dist/sitemap.css"]),
+        rename("sitemap.min.css"),
+        uglifycss(),
+        gulp.dest("dist/min")
+    ],
+    cb);
+});
+
+gulp.task("css:build", function (cb) {
+    runsequence(
+        "css:debug",
+        "css:release",
+        cb);
+});
+
+// Full build and watchers
+
+gulp.task("build", ["ts:build", "css:build"]);
+
+gulp.task("watch:ts", function () {
+    gulp.watch("SiteMap/**/*.ts", ["ts", "js:debug"]);
+});
+
+gulp.task("watch:css", function () {
+    gulp.watch("Styles/**/*.css", ["css:debug"]);
+});
+
+gulp.task("watch", ["watch:ts", "watch:css"]);

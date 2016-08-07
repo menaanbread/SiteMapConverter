@@ -6,33 +6,35 @@ span {
     font-style: italic;
 }
 
-.site-map-download-button {
-    display: none;
-}
+.site-map {
+    &-download-button {
+        display: none;
+    }
 
-.site-map-input {
-    height: 300px;
-    width: 100%;
-}
+    &-input {
+        height: 300px;
+        width: 100%;
+    }
 
-.site-map-label {
-    font-weight: bold;
-}
+    &-label {
+        font-weight: bold;
+    }
 
-.site-map-output {
-    border: 1px solid darkgray;
-    max-height: 300px;
-    overflow-y: auto;
-}
+    &-output {
+        border: 1px solid darkgray;
+        max-height: 300px;
+        overflow-y: auto;
+    }
 
-.site-map-page-greyout {
-    background-color: gray;
-    display: none;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    opacity: 0.5;
-    top: 0;
-    width: 100%;
-    z-index: 10;
+    &-page-greyout {
+        background-color: gray;
+        display: none;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        opacity: 0.5;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
 }
